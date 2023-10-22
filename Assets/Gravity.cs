@@ -24,7 +24,7 @@ public class Gravity : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            //rbody.AddExplosionForce(10, transform.position, 50);
+            rbody.AddForce(direction * rbody.mass * (strength * 2));
         }
     }
 
@@ -34,6 +34,6 @@ public class Gravity : MonoBehaviour
         Vector3 direction = (point.position - transform.position);
         direction.Normalize();
 
-        rbody.AddForce(direction * strength);
+        rbody.AddForce(direction * strength * rbody.mass);
     }
 }
