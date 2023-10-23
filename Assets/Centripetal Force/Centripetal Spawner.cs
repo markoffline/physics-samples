@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class CentripetalSpawner : MonoBehaviour
 {
     public GameObject obj;
 
@@ -18,10 +18,10 @@ public class Spawner : MonoBehaviour
     {
         for (int i = 0; i < count; i++)
         {
-            Vector3 pos = Random.insideUnitSphere * Random.Range(deadZone, radius);
+            Vector3 pos = Vector3.right * Random.Range(deadZone, radius);
 
             GameObject nObj = Instantiate(obj, pos, Quaternion.identity);
-            nObj.GetComponent<Gravity>().point = planet.transform;
+            nObj.GetComponent<CentripetalPull>().point = planet.transform;
         }
     }
 }
